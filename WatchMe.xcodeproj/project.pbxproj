@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90308069BA9618DC42528FF /* Pods_WatchMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */; };
+		DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC373F032254547800B1622D /* MyCollectionViewCell.swift */; };
+		DC6A97BE225447AB003BB955 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6A97BD225447AB003BB955 /* play@2x.png */; };
+		DCED16092252D30B000646B9 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */; };
+		DCED160C2252D590000646B9 /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = DCED160B2252D590000646B9 /* filter.png */; };
+		DCED160E2252D9E8000646B9 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = DCED160D2252D9E8000646B9 /* home.png */; };
+		DCED16102252DA5F000646B9 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DCED160F2252DA5F000646B9 /* heart.png */; };
+		DCED16122252DAF7000646B9 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED16112252DAF7000646B9 /* FavoritesTableViewController.swift */; };
+		DCED16192253FD57000646B9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED16182253FD57000646B9 /* Movie.swift */; };
 		DCF70D852252A84E0015BDB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF70D842252A84E0015BDB4 /* AppDelegate.swift */; };
 		DCF70D872252A84E0015BDB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF70D862252A84E0015BDB4 /* ViewController.swift */; };
 		DCF70D8A2252A84E0015BDB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCF70D882252A84E0015BDB4 /* Main.storyboard */; };
@@ -35,6 +44,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2843614DFCD44DBCAB4F2672 /* Pods-WatchMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMe.debug.xcconfig"; path = "Target Support Files/Pods-WatchMe/Pods-WatchMe.debug.xcconfig"; sourceTree = "<group>"; };
+		2F8D30ED9078BCD2BAEC54EA /* Pods-WatchMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMe.release.xcconfig"; path = "Target Support Files/Pods-WatchMe/Pods-WatchMe.release.xcconfig"; sourceTree = "<group>"; };
+		A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC373F032254547800B1622D /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC6A97BD225447AB003BB955 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		DCED160B2252D590000646B9 /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter.png; sourceTree = "<group>"; };
+		DCED160D2252D9E8000646B9 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		DCED160F2252DA5F000646B9 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		DCED16112252DAF7000646B9 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		DCED16182253FD57000646B9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = ../Movie.swift; sourceTree = "<group>"; };
 		DCF70D812252A84E0015BDB4 /* WatchMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF70D842252A84E0015BDB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCF70D862252A84E0015BDB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C90308069BA9618DC42528FF /* Pods_WatchMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +97,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9035C360663E2072385BEF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCED16072252D2CA000646B9 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC6A97BD225447AB003BB955 /* play@2x.png */,
+				DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */,
+				DCED16112252DAF7000646B9 /* FavoritesTableViewController.swift */,
+				DC373F032254547800B1622D /* MyCollectionViewCell.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		DCED160A2252D554000646B9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DCED160F2252DA5F000646B9 /* heart.png */,
+				DCED160D2252D9E8000646B9 /* home.png */,
+				DCED160B2252D590000646B9 /* filter.png */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		DCED16152253FBA6000646B9 /* pojo */ = {
+			isa = PBXGroup;
+			children = (
+				DCED16182253FD57000646B9 /* Movie.swift */,
+			);
+			path = pojo;
+			sourceTree = "<group>";
+		};
 		DCF70D782252A84E0015BDB4 = {
 			isa = PBXGroup;
 			children = (
+				DCED16152253FBA6000646B9 /* pojo */,
+				DCED160A2252D554000646B9 /* src */,
 				DCF70D832252A84E0015BDB4 /* WatchMe */,
 				DCF70D9B2252A84E0015BDB4 /* WatchMeTests */,
 				DCF70DA62252A84E0015BDB4 /* WatchMeUITests */,
 				DCF70D822252A84E0015BDB4 /* Products */,
+				FFDB20704AA26F3666DCD61F /* Pods */,
+				A9035C360663E2072385BEF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +161,7 @@
 		DCF70D832252A84E0015BDB4 /* WatchMe */ = {
 			isa = PBXGroup;
 			children = (
+				DCED16072252D2CA000646B9 /* controllers */,
 				DCF70D842252A84E0015BDB4 /* AppDelegate.swift */,
 				DCF70D862252A84E0015BDB4 /* ViewController.swift */,
 				DCF70D882252A84E0015BDB4 /* Main.storyboard */,
@@ -128,6 +191,15 @@
 			path = WatchMeUITests;
 			sourceTree = "<group>";
 		};
+		FFDB20704AA26F3666DCD61F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2843614DFCD44DBCAB4F2672 /* Pods-WatchMe.debug.xcconfig */,
+				2F8D30ED9078BCD2BAEC54EA /* Pods-WatchMe.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCF70DAC2252A84E0015BDB4 /* Build configuration list for PBXNativeTarget "WatchMe" */;
 			buildPhases = (
+				10944162D5B35D0C2889F95B /* [CP] Check Pods Manifest.lock */,
 				DCF70D7D2252A84E0015BDB4 /* Sources */,
 				DCF70D7E2252A84E0015BDB4 /* Frameworks */,
 				DCF70D7F2252A84E0015BDB4 /* Resources */,
+				B126F09860DBE7C51F2367ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,9 +309,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6A97BE225447AB003BB955 /* play@2x.png in Resources */,
 				DCF70D922252A84E0015BDB4 /* LaunchScreen.storyboard in Resources */,
+				DCED160E2252D9E8000646B9 /* home.png in Resources */,
 				DCF70D8F2252A84E0015BDB4 /* Assets.xcassets in Resources */,
 				DCF70D8A2252A84E0015BDB4 /* Main.storyboard in Resources */,
+				DCED16102252DA5F000646B9 /* heart.png in Resources */,
+				DCED160C2252D590000646B9 /* filter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,13 +335,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10944162D5B35D0C2889F95B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WatchMe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B126F09860DBE7C51F2367ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WatchMe/Pods-WatchMe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WatchMe/Pods-WatchMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DCF70D7D2252A84E0015BDB4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DCF70D8D2252A84E0015BDB4 /* WatchMe.xcdatamodeld in Sources */,
+				DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */,
+				DCED16092252D30B000646B9 /* HomeCollectionViewController.swift in Sources */,
+				DCED16192253FD57000646B9 /* Movie.swift in Sources */,
 				DCF70D872252A84E0015BDB4 /* ViewController.swift in Sources */,
+				DCED16122252DAF7000646B9 /* FavoritesTableViewController.swift in Sources */,
 				DCF70D852252A84E0015BDB4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +551,7 @@
 		};
 		DCF70DAD2252A84E0015BDB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2843614DFCD44DBCAB4F2672 /* Pods-WatchMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +566,7 @@
 		};
 		DCF70DAE2252A84E0015BDB4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F8D30ED9078BCD2BAEC54EA /* Pods-WatchMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
