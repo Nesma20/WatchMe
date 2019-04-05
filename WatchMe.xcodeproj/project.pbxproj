@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C90308069BA9618DC42528FF /* Pods_WatchMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */; };
 		DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC373F032254547800B1622D /* MyCollectionViewCell.swift */; };
+		DC5DB8032257906000B9F9C5 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DB8022257906000B9F9C5 /* Review.swift */; };
+		DC5DB8052257A84100B9F9C5 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */; };
 		DC6A97BE225447AB003BB955 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6A97BD225447AB003BB955 /* play@2x.png */; };
 		DCED16092252D30B000646B9 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */; };
 		DCED160C2252D590000646B9 /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = DCED160B2252D590000646B9 /* filter.png */; };
@@ -48,6 +50,8 @@
 		2F8D30ED9078BCD2BAEC54EA /* Pods-WatchMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMe.release.xcconfig"; path = "Target Support Files/Pods-WatchMe/Pods-WatchMe.release.xcconfig"; sourceTree = "<group>"; };
 		A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC373F032254547800B1622D /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC5DB8022257906000B9F9C5 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		DC6A97BD225447AB003BB955 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		DCED160B2252D590000646B9 /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter.png; sourceTree = "<group>"; };
@@ -105,6 +109,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC5DB7FF225788FC00B9F9C5 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		DCED16072252D2CA000646B9 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +123,8 @@
 				DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */,
 				DCED16112252DAF7000646B9 /* FavoritesTableViewController.swift */,
 				DC373F032254547800B1622D /* MyCollectionViewCell.swift */,
+				DCF70D882252A84E0015BDB4 /* Main.storyboard */,
+				DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -130,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				DCED16182253FD57000646B9 /* Movie.swift */,
+				DC5DB8022257906000B9F9C5 /* Review.swift */,
 			);
 			path = pojo;
 			sourceTree = "<group>";
@@ -161,10 +175,10 @@
 		DCF70D832252A84E0015BDB4 /* WatchMe */ = {
 			isa = PBXGroup;
 			children = (
+				DC5DB7FF225788FC00B9F9C5 /* views */,
 				DCED16072252D2CA000646B9 /* controllers */,
 				DCF70D842252A84E0015BDB4 /* AppDelegate.swift */,
 				DCF70D862252A84E0015BDB4 /* ViewController.swift */,
-				DCF70D882252A84E0015BDB4 /* Main.storyboard */,
 				DCF70D8E2252A84E0015BDB4 /* Assets.xcassets */,
 				DCF70D902252A84E0015BDB4 /* LaunchScreen.storyboard */,
 				DCF70D932252A84E0015BDB4 /* Info.plist */,
@@ -382,10 +396,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCF70D8D2252A84E0015BDB4 /* WatchMe.xcdatamodeld in Sources */,
+				DC5DB8032257906000B9F9C5 /* Review.swift in Sources */,
 				DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */,
 				DCED16092252D30B000646B9 /* HomeCollectionViewController.swift in Sources */,
 				DCED16192253FD57000646B9 /* Movie.swift in Sources */,
 				DCF70D872252A84E0015BDB4 /* ViewController.swift in Sources */,
+				DC5DB8052257A84100B9F9C5 /* ReviewTableViewCell.swift in Sources */,
 				DCED16122252DAF7000646B9 /* FavoritesTableViewController.swift in Sources */,
 				DCF70D852252A84E0015BDB4 /* AppDelegate.swift in Sources */,
 			);
