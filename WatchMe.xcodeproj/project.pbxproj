@@ -12,6 +12,7 @@
 		DC5DB8032257906000B9F9C5 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DB8022257906000B9F9C5 /* Review.swift */; };
 		DC5DB8052257A84100B9F9C5 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */; };
 		DC6A97BE225447AB003BB955 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6A97BD225447AB003BB955 /* play@2x.png */; };
+		DC8E49E02258F2B800950A46 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8E49DF2258F2B800950A46 /* TableViewController.swift */; };
 		DCED16092252D30B000646B9 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */; };
 		DCED160C2252D590000646B9 /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = DCED160B2252D590000646B9 /* filter.png */; };
 		DCED160E2252D9E8000646B9 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = DCED160D2252D9E8000646B9 /* home.png */; };
@@ -53,6 +54,7 @@
 		DC5DB8022257906000B9F9C5 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		DC6A97BD225447AB003BB955 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		DC8E49DF2258F2B800950A46 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		DCED160B2252D590000646B9 /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter.png; sourceTree = "<group>"; };
 		DCED160D2252D9E8000646B9 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		DCF70D782252A84E0015BDB4 = {
 			isa = PBXGroup;
 			children = (
+				DC8E49DF2258F2B800950A46 /* TableViewController.swift */,
 				DCED16152253FBA6000646B9 /* pojo */,
 				DCED160A2252D554000646B9 /* src */,
 				DCF70D832252A84E0015BDB4 /* WatchMe */,
@@ -398,6 +401,7 @@
 				DCF70D8D2252A84E0015BDB4 /* WatchMe.xcdatamodeld in Sources */,
 				DC5DB8032257906000B9F9C5 /* Review.swift in Sources */,
 				DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */,
+				DC8E49E02258F2B800950A46 /* TableViewController.swift in Sources */,
 				DCED16092252D30B000646B9 /* HomeCollectionViewController.swift in Sources */,
 				DCED16192253FD57000646B9 /* Movie.swift in Sources */,
 				DCF70D872252A84E0015BDB4 /* ViewController.swift in Sources */,

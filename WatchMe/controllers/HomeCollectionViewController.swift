@@ -2,7 +2,7 @@
 //  HomeCollectionViewController.swift
 //  WatchMe
 //
-//  Created by ashraf on 4/2/19.
+//  Created by nesma on 4/2/19.
 //  Copyright © 2019 nesma. All rights reserved.
 //
 
@@ -16,14 +16,22 @@ class HomeCollectionViewController: UICollectionViewController {
     let BASEURL_FOR_ALAMOFIRE="https://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc"
     let api_key="e60603fa13fa5960561302ed2bfb5039"
     var movieList:Array<Movie> = [];
+    var movieListForPopularity:Array<Movie>=[]
+    var movieLsitForRate:Array<Movie>=[]
+    
+    @IBOutlet var segmentControl: UISegmentedControl?
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        segmentControl?.selectedSegmentIndex=0
+        segmentControl?.addTarget(self, action: "chaneState:", for: .touchDown)
         Alamofire.request(URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=\(api_key)")!)
             .validate()
             .response { (response) in
                 if let data = response.data {
                     do {
+                        
                         let json = try JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
                         
                         print(json["results"])
@@ -39,6 +47,8 @@ class HomeCollectionViewController: UICollectionViewController {
                                 
                                 
                         }
+                        self.movieListForPopularity=self.movieList
+                        self.sortMovies(list: self.movieList)
                         self.collectionView?.reloadData()
                     } catch {
                         print("Error: ", error)
@@ -47,14 +57,46 @@ class HomeCollectionViewController: UICollectionViewController {
                 }
                 
         }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
+       
        
 self.collectionView?.reloadData()
         // Do any additional setup after loading the view.
     }
+    func sortMovies(list:Array<Movie>) {
+        print("sort movies .........")
+        movieLsitForRate=movieList
+        movieLsitForRate.sort(by: {$0.vote > $1.vote})
+        for i in movieLsitForRate{
+            print(i.vote)
+        }
+    }
+    @IBAction func chaneState(_ sender: UISegmentedControl) {
+        print("enter")
+        switch segmentControl?.selectedSegmentIndex
+        {
+        case 0?:
+            print("case 0 .........")
+            
+            movieList = movieListForPopularity
+            self.collectionView?.reloadData()
+        case 1?:
+            print("case 1 .........")
+            
+            movieList = movieLsitForRate
+            self.collectionView?.reloadData()
+            
+            break
+            
+            
+        default: break
+        }
+    
+    
+    
+    }
+ 
+
+  
     
     func loadPoster(posterPath:String) -> UIImageView
     {
@@ -152,26 +194,6 @@ override
     }
     */
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
 
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }
