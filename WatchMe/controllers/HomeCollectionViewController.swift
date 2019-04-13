@@ -38,10 +38,10 @@ class HomeCollectionViewController: UICollectionViewController {
                              var results = json["results"] as! Array<Dictionary<String,Any>>
 
                             for i in results{
-                                var imageName = i["backdrop_path"] as! String
+                                var imageName = i["poster_path"] as! String
                                 var imageUrl = self.BASEURL_FOR_IMAGE+imageName
                                 
-                                let movie = Movie(id: i["id"] as! Int, title: i["title"] as! String, releaseDate: (i["release_date"] as! String), vote: (i["vote_average"] as! Double), posterImg: imageUrl)
+                                let movie = Movie(id: i["id"] as! Int, title: i["title"] as! String, releaseDate: (i["release_date"] as! String), vote: (i["vote_average"] as! Double), posterImg: imageUrl, overview: i["overview"] as! String)
                                 print(movie.id)
                                 self.movieList.append(movie)
                                 
@@ -140,22 +140,7 @@ self.collectionView?.reloadData()
             }.resume()
     }
     */
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
+   
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections

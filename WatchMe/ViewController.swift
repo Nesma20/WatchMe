@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import  SDWebImage
+import CoreData
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var reuseIdentifier:String?
 
@@ -18,8 +19,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var releaseYear: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     
+    @IBOutlet weak var btnAddToFavorite: UIButton!
+    @IBOutlet weak var overviewTextView: UITextView!
     @IBOutlet weak var rateLbl: UILabel!
-    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var titleTextView: UITextView!
     var movie :Movie?
     
     @IBOutlet weak var tableView: UITableView!
@@ -34,7 +37,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-    @IBOutlet weak var reviewTavleView: UITableView!
+    @IBOutlet weak var trailerTableView: UITableView!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView==self.tableView
         {
@@ -43,23 +46,34 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             cell.authorLbl.text=reviewsArray[indexPath.row].authorOfReview
             cell.contentTxt.text=reviewsArray[indexPath.row].contentOfReview
+            print(reviewsArray[indexPath.row].contentOfReview)
             return cell
         }
-        else if tableView==self.reviewTavleView
+        else if tableView==self.trailerTableView
         {
             reuseIdentifier="cellTrailer"
             let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier!, for: indexPath)
-            cell.textLabel?.text="Trailer\(indexPath.row+1)"
+            cell.textLabel?.text="Trailer \(indexPath.row+1)"
             cell.detailTextLabel?.text=""
             
             return cell
         }
         return UITableViewCell()
         
-        
-        
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView==trailerTableView{
+        let youtubeURL = NSURL(string:movieTrailers[indexPath.row])
+        if(UIApplication.shared.canOpenURL(youtubeURL as! URL)){
+            UIApplication.shared.openURL(youtubeURL as! URL)
+        }else{
+            print("Cannot open youtube")
+        }
+        }
+        
+    }
     
     
     
@@ -68,21 +82,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
    
-        titleLbl.text=movie?.title
+        titleTextView.text=movie?.title
         releaseYear.text=movie?.releaseDate
         rateLbl.text=String((movie?.vote)!)
         posterImage.sd_setImage(with: URL(string: (movie?.posterImg)!), placeholderImage: UIImage(named: "play@2x.png"))
+        overviewTextView.text=movie?.overview
         
-        let url = URL(string: "https://www.youtube.com/watch?v=695PN9xaEhs")
- 
-//        wkTrailler.load(URLRequest(url: url!))
        
         getReviews(idOfMovie: (movie?.id)!,api_key: api_key)
         getTrailers(idOfMovie: (movie?.id)!,api_key: api_key)
         self.tableView.delegate=self;
         self.tableView.dataSource=self;
-        self.reviewTavleView.delegate=self;
-        self.reviewTavleView.dataSource=self;
+        self.trailerTableView.delegate=self;
+        self.trailerTableView.dataSource=self;
     }
     
     func getReviews (idOfMovie :Int,api_key:String) {
@@ -145,7 +157,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             print(self.movieTrailers.count)
                         }
                         
-                        self.reviewTavleView.reloadData()
+                        self.trailerTableView.reloadData()
                         
                     } catch {
                         print("Error: ", error)
@@ -161,11 +173,37 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBAction func addToFavoriteBtn(_ sender: UIButton) {
         
+        SDWebImageManager.shared().saveImage(toCache: posterImage.image, for: URL(string: (movie?.posterImg)!))
+        var coreDataObj = CoreDataModel()
+        
+        var addMovie = coreDataObj.addMovie(movieWillSaved: movie!)
+        if reviewsArray.count > 0 && movieTrailers.count > 0{
+        var addReview = coreDataObj.addReviewsForMovie(idOfMovie: movie!.id, reviews: reviewsArray)
+            
+        var addTrailer = coreDataObj.addTrailers(idOfMovie: movie!.id, trailers: movieTrailers)
+        if addMovie && addReview && addTrailer {
+            print("Data Saved")
+        }
+        }
+        else
+        {
+            print("Movie Without reviews or trailers Saved")
+
+        }
+        
+        btnAddToFavorite.isEnabled = false
+        btnAddToFavorite.isSelected = true
+
+        
         
     }
     
+
+}
+    
+    
     
 
 
-}
+
 

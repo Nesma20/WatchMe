@@ -7,17 +7,27 @@
 //
 
 import UIKit
-
+import CoreData
 class FavoritesTableViewController: UITableViewController {
-
+    var movies:Array<NSManagedObject> = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let managerCOntext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName:"FavoriteMovie")
+        do{
+            movies = try managerCOntext.fetch(fetchRequest)
+            for var i in movies{
+                print(i.value(forKey: "title"))
+            }
+        }
+        catch let error as NSError{
+            
+            print(error)
+            
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +39,7 @@ class FavoritesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

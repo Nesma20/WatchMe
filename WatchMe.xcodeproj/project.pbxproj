@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C90308069BA9618DC42528FF /* Pods_WatchMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */; };
 		DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC373F032254547800B1622D /* MyCollectionViewCell.swift */; };
+		DC3AC193225D9E1800EE738E /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3AC192225D9E1800EE738E /* CoreDataModel.swift */; };
 		DC5DB8032257906000B9F9C5 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DB8022257906000B9F9C5 /* Review.swift */; };
 		DC5DB8052257A84100B9F9C5 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */; };
 		DC6A97BE225447AB003BB955 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC6A97BD225447AB003BB955 /* play@2x.png */; };
@@ -51,6 +52,7 @@
 		2F8D30ED9078BCD2BAEC54EA /* Pods-WatchMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMe.release.xcconfig"; path = "Target Support Files/Pods-WatchMe/Pods-WatchMe.release.xcconfig"; sourceTree = "<group>"; };
 		A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC373F032254547800B1622D /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC3AC192225D9E1800EE738E /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		DC5DB8022257906000B9F9C5 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		DC6A97BD225447AB003BB955 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		DCF70D782252A84E0015BDB4 = {
 			isa = PBXGroup;
 			children = (
+				DC3AC192225D9E1800EE738E /* CoreDataModel.swift */,
 				DC8E49DF2258F2B800950A46 /* TableViewController.swift */,
 				DCED16152253FBA6000646B9 /* pojo */,
 				DCED160A2252D554000646B9 /* src */,
@@ -398,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3AC193225D9E1800EE738E /* CoreDataModel.swift in Sources */,
 				DCF70D8D2252A84E0015BDB4 /* WatchMe.xcdatamodeld in Sources */,
 				DC5DB8032257906000B9F9C5 /* Review.swift in Sources */,
 				DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */,
@@ -574,6 +578,7 @@
 			baseConfigurationReference = 2843614DFCD44DBCAB4F2672 /* Pods-WatchMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WatchMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -589,6 +594,7 @@
 			baseConfigurationReference = 2F8D30ED9078BCD2BAEC54EA /* Pods-WatchMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WatchMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
