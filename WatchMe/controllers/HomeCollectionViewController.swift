@@ -26,6 +26,10 @@ class HomeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         segmentControl?.selectedSegmentIndex=0
         segmentControl?.addTarget(self, action: "chaneState:", for: .touchDown)
+        if Reachability.isConnectedToNetwork() {
+            print("connected to the network")
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true;
+            
         Alamofire.request(URL(string: "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=\(api_key)")!)
             .validate()
             .response { (response) in
@@ -57,7 +61,13 @@ class HomeCollectionViewController: UICollectionViewController {
                 }
                 
         }
-       
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false;
+            
+        }
+        else {
+            print("can't connect to network")
+        }
        
 self.collectionView?.reloadData()
         // Do any additional setup after loading the view.
@@ -98,48 +108,9 @@ self.collectionView?.reloadData()
 
   
     
-    func loadPoster(posterPath:String) -> UIImageView
-    {
-        var imageview:UIImageView?
-        imageview?.sd_setImage(with: URL(string: "\(posterPath)"), placeholderImage: UIImage(named: "play@2x.png"))
-    
-        self.collectionView?.reloadData()
-        
-        return imageview!
     
     
-    }
-    
-/*
-    func getImageUsingPosterPath(posterPath : String, completionHandler : @escaping (Data?, Error?) -> Void){
-        let mURL = URL(string: "https://image.tmdb.org/t/p/w185\(posterPath)")!
-        
-        // Creating a session object with the default configuration.
-        let session = URLSession(configuration: .default)
-        
-        // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
-        _ = session.dataTask(with: mURL) { (data, response, error) in
-            // The download has finished.
-            if let e = error {
-                print("Error downloading picture: \(e)")
-            } else {
-                // No errors found.
-                // It would be weird if we didn't have a response, so check for that too.
-                if let res = response as? HTTPURLResponse {
-                    print("Downloaded picture with response code \(res.statusCode)")
-                    if let imageData = data {
-                        // Do something with your image.
-                        completionHandler(imageData, nil)
-                    } else {
-                        print("Couldn't get image: Image is nil")
-                    }
-                } else {
-                    print("Couldn't get response code for some reason")
-                }
-            }
-            }.resume()
-    }
-    */
+
    
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -158,6 +129,8 @@ self.collectionView?.reloadData()
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
        
         cell.movieImg.sd_setImage(with: URL(string: movieList[indexPath.item].posterImg), placeholderImage: UIImage(named: "play@2x.png"))
+        cell.movieTitle.text=movieList[indexPath.item].title
+        cell.movieRate.text = String( movieList[indexPath.item].vote)
         print(" " + movieList[indexPath.item].posterImg)
     
         return cell
@@ -168,16 +141,10 @@ override
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "viewDetails") as! ViewController
     secondViewController.movie=movieList[indexPath.item]
+    secondViewController.flag = 1
     self.navigationController?.pushViewController(secondViewController, animated: true)
     }
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+  
 
 
 

@@ -12,10 +12,11 @@ import  SDWebImage
 import CoreData
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var reuseIdentifier:String?
-
+    var flag:Int?
     let api_key="e60603fa13fa5960561302ed2bfb5039"
     var reviewsArray:Array<Review>=[]
     var movieTrailers :Array<String>=[]
+    var coreDataObj = CoreDataModel()
     @IBOutlet weak var releaseYear: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     
@@ -74,6 +75,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
     }
+   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView==trailerTableView{
+        return 50;
+        }
+        else {
+        return 150;
+        }
+    }
     
     
     
@@ -88,16 +98,62 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         posterImage.sd_setImage(with: URL(string: (movie?.posterImg)!), placeholderImage: UIImage(named: "play@2x.png"))
         overviewTextView.text=movie?.overview
         
-       
-        getReviews(idOfMovie: (movie?.id)!,api_key: api_key)
-        getTrailers(idOfMovie: (movie?.id)!,api_key: api_key)
+        if coreDataObj.isMovieExist(idOfMovie: (movie?.id)!){
+            
+            btnAddToFavorite.isEnabled = false
+            btnAddToFavorite.isSelected = true
+            
+        }
+        if flag == 1 {
+        getReviewsFromURl(idOfMovie: (movie?.id)!,api_key: api_key)
+        getTrailersFromURL(idOfMovie: (movie?.id)!,api_key: api_key)
+    }
+        else if flag == 2 {
+            getReviewsFromCoreData()
+            getTrailerFromCoreData()
+            
+        }
+    
         self.tableView.delegate=self;
         self.tableView.dataSource=self;
         self.trailerTableView.delegate=self;
         self.trailerTableView.dataSource=self;
     }
+    func getReviewsFromCoreData(){
+        var reviewsFromCoreData = coreDataObj.getReviewsForSpecificMovie(idOfMovie: (movie?.id)!)
+        for i in reviewsFromCoreData
+        {
+            var review = Review()
+            
+            review.authorOfReview = i.value(forKey: "author") as! String
+           review.contentOfReview = i.value(forKey: "reviewTxt") as! String
+           
+           
+            reviewsArray.append(review)
+            
+        }
+        
+    }
+    func getTrailerFromCoreData(){
+        var trailersFromCoreData = coreDataObj.getTrailersForSpecificMovie(idOfMovie: (movie?.id)!)
+        for i in trailersFromCoreData
+        {
+            
+            var trailer = i.value(forKey: "trailer") as! String
+           
+            
+            
+            movieTrailers.append(trailer)
+            
+        }
+        
+    }
     
-    func getReviews (idOfMovie :Int,api_key:String) {
+    
+    
+    
+    
+    func getReviewsFromURl (idOfMovie :Int,api_key:String) {
         let id=String(idOfMovie)
        var url:String="https://api.themoviedb.org/3/movie/\(id)/reviews?api_key=\(api_key)"
        
@@ -112,13 +168,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         var results = json["results"] as! Array<Dictionary<String,Any>>
                         
                         for i in results{
-//                            var = i["author"] as! String
-//                           
-//                            
+                          
                           let review = Review(authorOfReview: i["author"] as! String, contentOfReview: i["content"] as! String)
                            print(review.authorOfReview)
                            self.reviewsArray.append(review)
-//                            
                             
                         }
                         
@@ -136,7 +189,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    func getTrailers(idOfMovie:Int,api_key:String){
+    func getTrailersFromURL(idOfMovie:Int,api_key:String){
         let id=String(idOfMovie)
         var url:String="https://api.themoviedb.org/3/movie/\(id)/videos?api_key=\(api_key)"
         
@@ -193,8 +246,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         btnAddToFavorite.isEnabled = false
         btnAddToFavorite.isSelected = true
-
-        
         
     }
     

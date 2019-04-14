@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C90308069BA9618DC42528FF /* Pods_WatchMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */; };
+		DC0461412262505C006A44E9 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0461402262505C006A44E9 /* FavoriteTableViewCell.swift */; };
+		DC0461432262525C006A44E9 /* staryellow.png in Resources */ = {isa = PBXBuildFile; fileRef = DC04614222625259006A44E9 /* staryellow.png */; };
+		DC0461452262B11D006A44E9 /* gridicon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC0461442262B11B006A44E9 /* gridicon.png */; };
+		DC0485422263D0DC002151D3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0485412263D0DC002151D3 /* Reachability.swift */; };
+		DC12082922622CBC008E866A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = DC12082822622CBB008E866A /* star.png */; };
 		DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC373F032254547800B1622D /* MyCollectionViewCell.swift */; };
 		DC3AC193225D9E1800EE738E /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3AC192225D9E1800EE738E /* CoreDataModel.swift */; };
 		DC5DB8032257906000B9F9C5 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DB8022257906000B9F9C5 /* Review.swift */; };
@@ -51,6 +56,11 @@
 		2843614DFCD44DBCAB4F2672 /* Pods-WatchMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMe.debug.xcconfig"; path = "Target Support Files/Pods-WatchMe/Pods-WatchMe.debug.xcconfig"; sourceTree = "<group>"; };
 		2F8D30ED9078BCD2BAEC54EA /* Pods-WatchMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchMe.release.xcconfig"; path = "Target Support Files/Pods-WatchMe/Pods-WatchMe.release.xcconfig"; sourceTree = "<group>"; };
 		A6A9254D5560C0EC22EF7922 /* Pods_WatchMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC0461402262505C006A44E9 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		DC04614222625259006A44E9 /* staryellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = staryellow.png; sourceTree = "<group>"; };
+		DC0461442262B11B006A44E9 /* gridicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gridicon.png; sourceTree = "<group>"; };
+		DC0485412263D0DC002151D3 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		DC12082822622CBB008E866A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		DC373F032254547800B1622D /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC3AC192225D9E1800EE738E /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		DC5DB8022257906000B9F9C5 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -116,6 +126,9 @@
 		DC5DB7FF225788FC00B9F9C5 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				DC373F032254547800B1622D /* MyCollectionViewCell.swift */,
+				DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */,
+				DC0461402262505C006A44E9 /* FavoriteTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -126,9 +139,7 @@
 				DC6A97BD225447AB003BB955 /* play@2x.png */,
 				DCED16082252D30B000646B9 /* HomeCollectionViewController.swift */,
 				DCED16112252DAF7000646B9 /* FavoritesTableViewController.swift */,
-				DC373F032254547800B1622D /* MyCollectionViewCell.swift */,
 				DCF70D882252A84E0015BDB4 /* Main.storyboard */,
-				DC5DB8042257A84100B9F9C5 /* ReviewTableViewCell.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -136,6 +147,9 @@
 		DCED160A2252D554000646B9 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				DC0461442262B11B006A44E9 /* gridicon.png */,
+				DC04614222625259006A44E9 /* staryellow.png */,
+				DC12082822622CBB008E866A /* star.png */,
 				DCED160F2252DA5F000646B9 /* heart.png */,
 				DCED160D2252D9E8000646B9 /* home.png */,
 				DCED160B2252D590000646B9 /* filter.png */,
@@ -155,6 +169,7 @@
 		DCF70D782252A84E0015BDB4 = {
 			isa = PBXGroup;
 			children = (
+				DC0485412263D0DC002151D3 /* Reachability.swift */,
 				DC3AC192225D9E1800EE738E /* CoreDataModel.swift */,
 				DC8E49DF2258F2B800950A46 /* TableViewController.swift */,
 				DCED16152253FBA6000646B9 /* pojo */,
@@ -331,10 +346,13 @@
 			files = (
 				DC6A97BE225447AB003BB955 /* play@2x.png in Resources */,
 				DCF70D922252A84E0015BDB4 /* LaunchScreen.storyboard in Resources */,
+				DC0461432262525C006A44E9 /* staryellow.png in Resources */,
 				DCED160E2252D9E8000646B9 /* home.png in Resources */,
 				DCF70D8F2252A84E0015BDB4 /* Assets.xcassets in Resources */,
 				DCF70D8A2252A84E0015BDB4 /* Main.storyboard in Resources */,
+				DC12082922622CBC008E866A /* star.png in Resources */,
 				DCED16102252DA5F000646B9 /* heart.png in Resources */,
+				DC0461452262B11D006A44E9 /* gridicon.png in Resources */,
 				DCED160C2252D590000646B9 /* filter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3AC193225D9E1800EE738E /* CoreDataModel.swift in Sources */,
+				DC0461412262505C006A44E9 /* FavoriteTableViewCell.swift in Sources */,
 				DCF70D8D2252A84E0015BDB4 /* WatchMe.xcdatamodeld in Sources */,
 				DC5DB8032257906000B9F9C5 /* Review.swift in Sources */,
 				DC373F042254547800B1622D /* MyCollectionViewCell.swift in Sources */,
@@ -412,6 +431,7 @@
 				DC5DB8052257A84100B9F9C5 /* ReviewTableViewCell.swift in Sources */,
 				DCED16122252DAF7000646B9 /* FavoritesTableViewController.swift in Sources */,
 				DCF70D852252A84E0015BDB4 /* AppDelegate.swift in Sources */,
+				DC0485422263D0DC002151D3 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

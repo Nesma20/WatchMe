@@ -8,24 +8,15 @@
 
 import UIKit
 import CoreData
+import SDWebImage
 class FavoritesTableViewController: UITableViewController {
     var movies:Array<NSManagedObject> = []
+    var moviesArray:Array<Movie> = []
+    var coreDataObj = CoreDataModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        let managerCOntext = delegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName:"FavoriteMovie")
-        do{
-            movies = try managerCOntext.fetch(fetchRequest)
-            for var i in movies{
-                print(i.value(forKey: "title"))
-            }
-        }
-        catch let error as NSError{
-            
-            print(error)
-            
-        }
+        getMovies()
+        //coreDataObj.deleteAllData()
         
         
     }
@@ -44,62 +35,49 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return moviesArray.count
     }
 
-    /*
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as! FavoriteTableViewCell
+        cell.favoriteMovieImg.sd_setImage(with: URL(string: moviesArray[indexPath.row].posterImg), placeholderImage: UIImage(named: "play@2x.png"))
+        cell.favoriteMovieTitle.text = moviesArray[indexPath.row].title
+        cell.favoriteMovieRate.text = String(moviesArray[indexPath.row].vote)
+       
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print ("select row ")
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "viewDetails") as! ViewController
+        secondViewController.movie = moviesArray[indexPath.row]
+        secondViewController.flag = 2
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
-    */
+ 
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func getMovies(){
+        movies = coreDataObj.getMoviesData()
+        for i in movies
+        {
+            var movie = Movie()
+            movie.id = i.value(forKey: "id") as! Int
+            movie.title = i.value(forKey: "title") as! String
+            movie.vote = i.value(forKey: "rate") as! Double
+            movie.releaseDate = i.value(forKey: "releaseDate") as! String
+            
+            movie.posterImg = i.value(forKey: "poster") as! String
+            movie.overview = i.value(forKey: "overview") as! String
+            print(movie.title)
+            moviesArray.append(movie)
+            
+        }
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150;
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
